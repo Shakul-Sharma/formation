@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
   choice choices: ['qa' , 'dev' , 'stg' , 'prod'], name: 'environment '
-  choice choices: ['master', 'dev'], name: 'BRANCH'
+  string description: 'master , dev', name: 'BRANCH'
 }
 
     stages {
