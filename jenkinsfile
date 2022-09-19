@@ -3,12 +3,13 @@ pipeline {
     parameters {
   choice choices: ['qa' , 'dev' , 'stg' , 'prod'], name: 'environment '
   string description: 'master , dev', name: 'BRANCH'
+  gitParameter branch: '', branchFilter: '.*', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
 }
 
     stages {
         stage('Create Stack') {
             steps {
-            sh "aws cloudformation create-stack --stack-name s3bucket2 --template-body file://s3cft.json --region 'us-west-1'"
+            sh "aws cloudformation create-stack --stack-name s3bucket0 --template-body file://s3cft.json --region 'us-west-1'"
               }
              }
             }
